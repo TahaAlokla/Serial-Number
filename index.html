@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Serial Number</title>
+    <!-- generating Random Serial Number -->
+</head>
+
+<body>
+    <button id="generate" onclick="generateSerial()">Generate</button>
+    <div id="serial"></div>
+    <form>
+        <input type="text" placeholder="Enter randomSerial" id="input">
+        <input type="submit" value="check">
+    </form>
+
+    <script>
+        // var randomNumber='';
+        function generateSerial() {
+            'use strict';
+            var chars = "0123456789abcdefghjklmnstuiowqprvxyzABCDEFGHJKLMNSOTRUPQVWXYZ",
+                serialLangth = 5,
+                randomSerial = '',
+                i;
+
+
+            for (i = 0; i < serialLangth; i++) {
+                var randomNumber = Math.floor(Math.random() * chars.length);
+                randomSerial += chars.substring(randomNumber, randomNumber + 1);
+                // console.log(randomNumber);
+            }
+            console.log(randomSerial);
+            document.getElementById('serial').textContent = randomSerial;
+
+
+        }
+
+        if (document.getElementById('input').value === document.getElementById('serial').textContent) {
+            console.log("NOT Robot !! ");
+        }
+    </script>
+
+</body>
+
+</html>
